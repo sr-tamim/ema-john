@@ -1,3 +1,3 @@
 ## Simple shopping webpage (SPA) made using `React`
 
-**ema-john webpage clone*
+*ema-john webpage clone*
