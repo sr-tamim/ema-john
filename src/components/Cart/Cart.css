@@ -1,0 +1,23 @@
+
+#cart{
+    width: 800px;
+}
+#cart div{
+    position: sticky;
+    top: 50px;
+}
+#cart-info{
+    max-width: 250px;
+}
+table{
+    font-size: 22px;
+}
+tr > td:nth-child(2){
+    text-align: right;
+    padding-left: 10px;
+}
+#grand-total{
+    font-size: 30px;
+    font-weight: bold;
+    color: darkorange;
+}
