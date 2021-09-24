@@ -14,26 +14,28 @@ const Cart = props => {
                 <h3>Cart</h3>
                 <div id="cart-info">
                     <table>
-                        <tr>
-                            <td>Items Added:</td>
-                            <td>{cart.length}</td>
-                        </tr>
-                        <tr>
-                            <td>Shipping:</td>
-                            <td>${shipping ? shipping.toFixed(2) : 0}</td>
-                        </tr>
-                        <tr>
-                            <td>Total before Tax:</td>
-                            <td>${totalBeforeTax ? totalBeforeTax.toFixed(2) : 0}</td>
-                        </tr>
-                        <tr>
-                            <td>Tax:</td>
-                            <td>${tax ? tax.toFixed(2) : 0}</td>
-                        </tr>
-                        <tr id="grand-total">
-                            <td>GrandTotal:</td>
-                            <td>${grandTotal ? grandTotal.toFixed(2) : 0}</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>Items Added:</td>
+                                <td>{cart.length}</td>
+                            </tr>
+                            <tr>
+                                <td>Shipping:</td>
+                                <td>${shipping ? shipping.toFixed(2) : 0}</td>
+                            </tr>
+                            <tr>
+                                <td>Total before Tax:</td>
+                                <td>${totalBeforeTax ? totalBeforeTax.toFixed(2) : 0}</td>
+                            </tr>
+                            <tr>
+                                <td>Tax:</td>
+                                <td>${tax ? tax.toFixed(2) : 0}</td>
+                            </tr>
+                            <tr id="grand-total">
+                                <td>GrandTotal:</td>
+                                <td>${grandTotal ? grandTotal.toFixed(2) : 0}</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

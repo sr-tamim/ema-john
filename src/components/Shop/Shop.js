@@ -3,17 +3,16 @@ import Cart from '../Cart/Cart';
 import Products from '../Products/Products';
 import './Shop.css';
 
-const Shop = () => {
+const Shop = props => {
     const [cart, setCart] = useState([]);
     const addToCart = (product) => {
         setCart([...cart, product]);
     }
-    console.log(cart);
 
     return (
         <div id="shop">
 
-            <Products addToCart={addToCart} />
+            <Products addToCart={addToCart} showProducts={props.showProducts} />
             <Cart cart={cart} />
 
         </div>
