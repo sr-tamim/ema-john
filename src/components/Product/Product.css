@@ -21,7 +21,7 @@
     display: flex;
     align-items:baseline;
     flex-wrap: wrap;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 .product-price{
     font-size: 35px;
@@ -30,7 +30,7 @@
 }
 .product-stock{
     font-size: 22px;
-    margin: 10px;
+    margin: 10px 0 0; 
 }
 .product-rating{
     margin: 0 0 10px 20px;
