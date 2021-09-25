@@ -20,7 +20,7 @@ function App() {
       <Header></Header>
       <main>
         <Search allProducts={allProducts} setShowProducts={setShowProducts} />
-        <Shop showProducts={showProducts} />
+        <Shop allProducts={allProducts} showProducts={showProducts} />
       </main>
     </div>
   );
