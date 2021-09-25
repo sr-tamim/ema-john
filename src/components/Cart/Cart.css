@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     background: linear-gradient(to right,rgba(255, 255, 255, 0.9),white, white);
+    backdrop-filter: blur(3px);
     position: absolute;
     right: 0;
     top: 0;
