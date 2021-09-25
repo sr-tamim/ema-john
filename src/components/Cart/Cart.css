@@ -1,10 +1,26 @@
 
 #cart{
-    width: 800px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to right,rgba(255, 255, 255, 0.9),white, white);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: max-content;
+    max-width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    border-radius: 20px;
+    transform-origin: right;
+    transition: 500ms;
 }
-#cart div{
+#cart.hide{
+    transform: scaleX(0);
+}
+#cart-container{
     position: sticky;
     top: 50px;
+    height: max-content;
 }
 table{
     font-size: 22px;
@@ -17,4 +33,25 @@ tr > td:nth-child(2){
     font-size: 30px;
     font-weight: bold;
     color: darkorange;
+}
+#empty-cart-button{
+    font-size: 25px;
+    font-weight: bold;
+    background-color: darkorange;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#empty-cart-button:hover{
+    background-color: #ff7300;
+}
+
+@media screen and (min-width: 992px) {
+    #cart{
+        width: 600px;
+    }
 }

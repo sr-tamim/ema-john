@@ -15,14 +15,18 @@ header nav{
     margin-top: 30px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 header nav a{
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     padding: 20px 15px;
 }
 header nav a:hover{
     background-color: #ff7300;
+}
+@media screen and (min-width:768px) {
+    header nav a{ font-size: 20px; }
 }

@@ -21,8 +21,8 @@ const Product = (props) => {
                     <p className="product-stock">In stock: {stock}</p>
                     <p className="product-rating">
                         <Rating initialRating={star} emptySymbol="fa fa-star-o icon-color" fullSymbol="fa fa-star icon-color" readonly />
+                        <p className="product-star-count">{starCount}</p>
                     </p>
-                    <p className="product-star-count">{starCount}</p>
 
                 </div>
                 <button className="product-add-button" onClick={() => { props.addToCart(props.product) }}>

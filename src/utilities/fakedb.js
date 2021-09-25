@@ -32,4 +32,9 @@ const getFromDB = allProducts => {
   return cartItems;
 }
 
-export { addToDB, getFromDB };
+const emptyCart = setCart => {
+  localStorage.removeItem('shopping-cart');
+  setCart([]);
+}
+
+export { addToDB, getFromDB, emptyCart };

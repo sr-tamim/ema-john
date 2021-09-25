@@ -11,3 +11,27 @@
     outline: 0;
     border-radius: 10px;
 }
+#cart-icon{
+    color: #ff7300;
+    font-size: 25px;
+    display: inline-block;
+    margin: 0 20px;
+    cursor: pointer;
+    position: relative;
+}
+#cart-icon #cart-items{
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(255, 81, 0);
+    position: absolute;
+    left: 80%;
+    bottom: 80%;
+    width: max-content;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
