@@ -1,4 +1,4 @@
-## Simple shopping webpage (SPA) made using `React`
+## Responsive shopping webpage (SPA) made using `React.js`
 
 ### [View webpage](https://ema-john-srt.netlify.app/)
 
