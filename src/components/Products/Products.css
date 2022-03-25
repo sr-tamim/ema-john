@@ -1,6 +1,32 @@
 
 #products{
-    width: 80%;
+    width: 100%;
     max-width: 1500px;
     padding: 0 10%;
+}
+
+.pagination{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px auto 100px;
+}
+.pagination button{
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--theme-color);
+    padding: 5px 15px;
+    margin: 10px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.pagination button.active{
+    color: white;
+    background-color: #ff5100;
+    box-shadow: 0 0 10px gray;
+}
+.pagination button:hover{
+    box-shadow: 0 0 10px gray;
 }
