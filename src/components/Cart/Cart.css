@@ -33,12 +33,12 @@ tr > td:nth-child(2){
 #grand-total{
     font-size: 30px;
     font-weight: bold;
-    color: darkorange;
+    color: var(--theme-color);
 }
 #empty-cart-button{
     font-size: 25px;
     font-weight: bold;
-    background-color: darkorange;
+    background-color: var(--theme-color);
     color: white;
     width: 100%;
     padding: 10px;
@@ -48,7 +48,7 @@ tr > td:nth-child(2){
     cursor: pointer;
 }
 #empty-cart-button:hover{
-    background-color: #ff7300;
+    background-color: var(--theme-hover-color);
 }
 
 @media screen and (min-width: 992px) {

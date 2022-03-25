@@ -41,25 +41,12 @@
     display: inline;
     margin: 0 0 0 10px;
 }
-.product-add-button{
-    background-color: darkorange;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border: 0;
-    border-radius: 5px;
-    padding: 10px 30px;
-    cursor: pointer;
-}
-.product-add-button:hover{
-    background-color: #ff7300;
-}
 .cart-icon{
     margin-right: 10px;
 }
 
 .icon-color{
-    color: darkorange;
+    color: var(--theme-color);
 }
 
 @media screen and (min-width: 768px) {
