@@ -1,24 +1,24 @@
 
-import React from 'react';
+import React, { useContext, useRef } from 'react';
+import { ProductsContext } from '../../contexts/ProductsContext';
 import './Search.css';
 
-const Search = props => {
-    const { allProducts, setShowProducts } = props;
 
+const Search = () => {
+    const { setSearchedText, setPage } = useContext(ProductsContext);
+    const searchRef = useRef();
     const searchFunction = e => {
-        const searched = e.target.value.toLowerCase();
-        const searchedProducts = allProducts.filter(product => product.name.toLowerCase().includes(searched) || product.category.toLowerCase().includes(searched));
-
-        setShowProducts(searchedProducts);
+        e.preventDefault();
+        const searchText = searchRef.current.value.toLowerCase();
+        setPage(0);
+        setSearchedText(searchText);
     }
     return (
         <div id="search-area">
-            <input type="text" id="search-field" placeholder="type here for search" onChange={searchFunction} />
-            <span id="cart-icon">
-                <i class="fas fa-shopping-cart" onClick={props.showHideCart} ></i>
-                {props.cartItems > 0 ? <small id="cart-items">{props.cartItems}</small> : ''}
-
-            </span>
+            <form onSubmit={searchFunction}>
+                <input type="text" id="search-field" placeholder="type here for search" ref={searchRef} />
+                <input type="submit" id="search-submit" value="Search" />
+            </form>
         </div>
     );
 };

@@ -1,41 +1,43 @@
+
 #search-area{
     background-color: white;
-    text-align: center;
-    padding: 30px 0;
+    display: flex;
+    justify-content: center;
     position: sticky;
     top: 0;
+    padding: 20px;
     z-index: 10;
 }
-#search-field{
-    font-size: 20px;
-    width: 50%;
+#search-area form{
     background-color: rgba(255, 140, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 5px;
+    border-radius: 10px;
+}
+#search-field{
+    flex-grow: 1;
+    background: transparent;
+    font-size: 20px;
     padding: 10px;
     border:0;
     outline: 0;
-    border-radius: 10px;
 }
-#cart-icon{
-    color: #ff7300;
-    font-size: 25px;
-    display: inline-block;
-    margin: 0 20px;
-    cursor: pointer;
-    position: relative;
-}
-#cart-icon #cart-items{
-    font-size: 12px;
-    font-weight: bold;
+#search-submit{
+    background-color: var(--theme-color);
     color: white;
-    background-color: rgb(255, 81, 0);
-    position: absolute;
-    left: 80%;
-    bottom: 80%;
-    width: max-content;
-    min-width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 18px;
+    border: 0;
+    border-radius: inherit;
+    outline: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    #search-area form{
+        flex-direction: column;
+    }
 }
