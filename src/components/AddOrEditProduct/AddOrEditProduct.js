@@ -3,8 +3,10 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import "./AddOrEditProduct.css";
+import { UserContext } from '../../contexts/UserContext';
 
 const AddOrEditProduct = ({ method }) => {
+    const { user } = useContext(UserContext)
     const { getProducts } = useContext(ProductsContext);
     const { id } = useParams();
     const [product, setProduct] = useState({});
@@ -63,8 +65,7 @@ const AddOrEditProduct = ({ method }) => {
                 <div>
                     <label>Rated by</label>
                     <input type="number" ref={formInputs.starCount} defaultValue={starCount} required /></div>
-                {method === 'Edit' &&
-                    <input type="submit" value="Update" className="primary-button" />}
+                {method === 'Edit' && <button type="submit" className="primary-button" disabled={user && !process.env.REACT_APP_ADMIN_ACCOUNTS.split('&').includes(user.email)}>Update</button>}
             </form>
         </div>
     );

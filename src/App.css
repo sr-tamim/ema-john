@@ -6,6 +6,8 @@
 
 main{
     position: relative;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .heading{
@@ -26,6 +28,9 @@ main{
 }
 .primary-button:hover{
     background-color: var(--theme-hover-color);
+}
+.primary-button:disabled{
+    filter: brightness(80%);
 }
 
 .primary-form{
