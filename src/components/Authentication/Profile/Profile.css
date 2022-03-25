@@ -1,0 +1,19 @@
+
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 10px;
+}
+
+.profile-container img{
+    width: 150px;
+    border-radius: 50%;
+}
+.profile-container h1{
+    margin: 10px 0;
+}
+.profile-container h5{
+    margin: 10px 0 30px;
+}
