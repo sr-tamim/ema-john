@@ -7,10 +7,10 @@ header{
 }
 header img{
     width: 50%;
-    max-width: 600px;
+    max-width: 400px;
 }
 header nav{
-    background-color: darkorange;
+    background-color: var(--theme-color);
     width: 100%;
     margin-top: 30px;
     display: flex;
@@ -24,8 +24,35 @@ header nav a{
     font-weight: bold;
     padding: 20px 15px;
 }
-header nav a:hover{
-    background-color: #ff7300;
+header nav a:hover, header nav a.active{
+    background-color: var(--theme-hover-color);
+}
+#cart-icon{
+    color: #ffffff;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    position: relative;
+}
+#cart-icon #cart-items{
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--theme-hover-color);
+    position: absolute;
+    left: 80%;
+    bottom: 60%;
+    width: max-content;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @media screen and (min-width:768px) {
     header nav a{ font-size: 20px; }
