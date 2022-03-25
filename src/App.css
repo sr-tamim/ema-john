@@ -1,4 +1,61 @@
 *{
     font-family: 'Trebuchet MS', Arial, sans-serif;
     -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+
+main{
+    position: relative;
+}
+
+.heading{
+    text-align: center;
+    color: var(--theme-hover-color);
+}
+
+.primary-button{
+    background-color: var(--theme-color);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin: 10px;
+    cursor: pointer;
+}
+.primary-button:hover{
+    background-color: var(--theme-hover-color);
+}
+
+.primary-form{
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+.primary-form > div{
+    margin: 20px 0;
+}
+
+.primary-form label{
+    text-align: left;
+    display: block;
+    color: var(--theme-color);
+    font-weight: bold;
+}
+
+.primary-form input{
+    width: 100%;
+    font-size: 18px;
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
+    box-shadow: 0 0 5px #00000035 inset;
+}
+
+.primary-form input[type='submit']{
+    margin: 0;
 }
