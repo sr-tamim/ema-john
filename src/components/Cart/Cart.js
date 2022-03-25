@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import './Cart.css';
-import { emptyCart } from '../../utilities/fakedb';
 import { ProductsContext } from '../../contexts/ProductsContext';
 
 const Cart = () => {
-    const { cart, setCart } = useContext(ProductsContext);
+    const { cart, setCart, emptyCart } = useContext(ProductsContext);
     const subTotal = cart.length > 0 ? cart.reduce((previous, current) => previous + parseFloat(current.price), 0) : 0;
     const shipping = cart.length > 0 ? cart.reduce((previous, current) => previous + parseFloat(current.shipping), 0) : 0;
     const totalBeforeTax = (subTotal + shipping);
