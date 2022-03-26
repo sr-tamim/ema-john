@@ -9,20 +9,20 @@ const Products = () => {
     return (
         <>
             <Search />
-            <div id="products">
+            <section id="products">
                 <h2>Products</h2>
                 {
                     products.map(product => <Product key={product._id} product={product} />)
                 }
-            </div>
-            <div className="pagination">
+            </section>
+            <section className="pagination">
                 {
                     [...Array(totalPage).keys()].map(i =>
                         <button key={i} onClick={() => setPage(i)}
                             className={page === i ? 'active' : ''}
                         >{i + 1}</button>)
                 }
-            </div>
+            </section>
         </>
     );
 

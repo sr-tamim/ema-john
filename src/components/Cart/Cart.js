@@ -10,7 +10,7 @@ const Cart = () => {
     const tax = totalBeforeTax * 0.1;
     const grandTotal = (totalBeforeTax + tax);
     return (
-        <div id="cart" className="hide">
+        <aside id="cart" className="hide">
             <div id="cart-container">
                 <h2>Cart</h2>
                 <table>
@@ -39,7 +39,7 @@ const Cart = () => {
                 </table>
                 <button id="empty-cart-button" onClick={() => emptyCart(setCart)}>Empty Cart</button>
             </div>
-        </div>
+        </aside>
     );
 };
 

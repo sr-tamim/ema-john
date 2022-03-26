@@ -14,12 +14,12 @@ const Search = () => {
         setSearchedText(searchText);
     }
     return (
-        <div id="search-area">
+        <section id="search-area">
             <form onSubmit={searchFunction}>
                 <input type="text" id="search-field" placeholder="type here for search" ref={searchRef} />
                 <input type="submit" id="search-submit" value="Search" />
             </form>
-        </div>
+        </section>
     );
 };
 
