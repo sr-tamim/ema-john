@@ -26,7 +26,7 @@ main{
     margin: 10px;
     cursor: pointer;
 }
-.primary-button:hover{
+.primary-button:not(:disabled):hover{
     background-color: var(--theme-hover-color);
 }
 .primary-button:disabled{
@@ -62,5 +62,17 @@ main{
 }
 
 .primary-form input[type='submit']{
-    margin: 0;
+    margin: 20px 0;
+}
+
+.loading-container{
+    display: grid;
+    place-items: center;
+    font-size: xx-large;
+    font-weight: bold;
+    padding: 80px 10px;
+    animation: loadingTextAni 1000ms ease-in-out infinite;
+}
+@keyframes loadingTextAni {
+    50%{opacity: 0.2;}
 }

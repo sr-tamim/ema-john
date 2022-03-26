@@ -58,5 +58,12 @@ function App() {
   );
 }
 
-
 export default App;
+
+export function Loading() {
+  return (
+    <div className='loading-container'>
+      Loading...
+    </div>
+  )
+}

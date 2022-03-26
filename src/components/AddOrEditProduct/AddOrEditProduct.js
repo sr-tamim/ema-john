@@ -4,13 +4,15 @@ import axios from 'axios';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import "./AddOrEditProduct.css";
 import { UserContext } from '../../contexts/UserContext';
+import { useHistory } from 'react-router-dom';
+import { Loading } from '../../App';
 
 const AddOrEditProduct = ({ method }) => {
     const { user } = useContext(UserContext)
     const { getProducts } = useContext(ProductsContext);
     const { id } = useParams();
-    const [product, setProduct] = useState({});
-    const { name, seller, price, stock, category, star, starCount } = product;
+    const [product, setProduct] = useState(null);
+    const { name, seller, price, stock, category, star, starCount } = product || {};
 
     useEffect(() => {
         axios(`https://ema-john-srt.herokuapp.com/product/${id}`)
@@ -28,6 +30,7 @@ const AddOrEditProduct = ({ method }) => {
         price: useRef()
     }
 
+    const history = useHistory();
     const handleSubmit = (event) => {
         event.preventDefault();
         const updatedProduct = {};
@@ -35,15 +38,15 @@ const AddOrEditProduct = ({ method }) => {
             updatedProduct[key] = formInputs[key].current.value;
         })
         axios.post(`https://ema-john-srt.herokuapp.com/product/update/${id}`, updatedProduct)
-            .then(({ data }) => data.modifiedCount > 0 && alert('Updated'))
+            .then(({ data }) => data.modifiedCount > 0 && history.push('/inventory'))
             .then(() => getProducts());
     }
 
-    return (
+    return (!product ? <Loading /> :
         <div className="product-update" >
             <h1 className="heading">{method} product</h1>
             <h5>Product id: {id}</h5>
-            <form onSubmit={handleSubmit} className="product-edit-form">
+            <form onSubmit={handleSubmit} className="product-edit-form primary-form">
                 <div>
                     <label>Name</label>
                     <input type="text" ref={formInputs.name} defaultValue={name} required /></div>
@@ -65,7 +68,8 @@ const AddOrEditProduct = ({ method }) => {
                 <div>
                     <label>Rated by</label>
                     <input type="number" ref={formInputs.starCount} defaultValue={starCount} required /></div>
-                {method === 'Edit' && <button type="submit" className="primary-button" disabled={user && !process.env.REACT_APP_ADMIN_ACCOUNTS.split('&').includes(user.email)}>Update</button>}
+                {method === 'Edit' && <input type="submit" value="Update" className="primary-button"
+                    disabled={user && !process.env.REACT_APP_ADMIN_ACCOUNTS.split('&').includes(user.email)} />}
             </form>
         </div>
     );
