@@ -20,15 +20,15 @@
 #search-field{
     flex-grow: 1;
     background: transparent;
-    font-size: 20px;
-    padding: 10px;
+    font-size: clamp(18px, 3vw, 22px);
+    padding: clamp(5px, 1vw, 10px);
     border:0;
     outline: 0;
 }
 #search-submit{
     background-color: var(--theme-color);
     color: white;
-    font-size: 18px;
+    font-size: clamp(14px, 2vw, 18px);
     border: 0;
     border-radius: inherit;
     outline: 0;
