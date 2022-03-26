@@ -20,6 +20,8 @@ main{
     color: white;
     font-size: 20px;
     font-weight: bold;
+    text-decoration: none;
+    text-align: center;
     border: 0;
     border-radius: 5px;
     padding: 10px 30px;

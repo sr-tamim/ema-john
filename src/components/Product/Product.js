@@ -17,8 +17,10 @@ const Product = ({ product }) => {
             <img src={img} alt={name} />
             <div>
                 <h3 className="product-name">{name}</h3>
-                <p className="product-seller">By: {seller}</p>
-                <p className="product-category">Category: {category}</p><br />
+                <div className='product-details'>
+                    <b>Company:</b> {seller}
+                    <b>Category:</b> {category}
+                </div>
                 <div className="product-info">
                     <h3 className="product-price">${price}</h3>
                     <p className="product-stock">In stock: {stock}</p>
@@ -28,20 +30,22 @@ const Product = ({ product }) => {
                     </p>
 
                 </div>
-                {window.location.pathname !== '/inventory' &&
-                    <button className="primary-button" onClick={() => { addToCart(product) }}>
-                        <FontAwesomeIcon icon={faCartPlus} className="cart-icon" />
-                        Add to Cart
-                    </button>
-                }
-                <NavLink to={`/product/${_id}`}>
-                    <button className="primary-button">View</button>
-                </NavLink>
-                {window.location.pathname === '/inventory' &&
-                    <NavLink to={`/product/update/${_id}`}>
-                        <button className="primary-button">Update</button>
+                <div className='product-action-buttons'>
+                    {window.location.pathname !== '/inventory' &&
+                        <button className="primary-button" onClick={() => { addToCart(product) }}>
+                            <FontAwesomeIcon icon={faCartPlus} className="cart-icon" />
+                            Add to Cart
+                        </button>
+                    }
+                    <NavLink className="primary-button" to={`/product/${_id}`}>
+                        View
                     </NavLink>
-                }
+                    {window.location.pathname === '/inventory' &&
+                        <NavLink className="primary-button" to={`/product/update/${_id}`}>
+                            Update
+                        </NavLink>
+                    }
+                </div>
             </div>
         </div>
     );

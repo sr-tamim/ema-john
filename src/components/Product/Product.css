@@ -1,7 +1,7 @@
 .product{
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 30px 10px;
     margin: 20px 0;
 }
 .product img{
@@ -10,12 +10,12 @@
 .product-name{
     margin: 0;
 }
-.product-seller, .product-category{
+.product-details{
     text-transform: capitalize;
-    font-size: 18px;
-    margin: 5px;
-    margin-left: 30px;
-    display: inline-block;
+    margin-top: 15px;
+}
+.product-details > b:not(:first-child){
+    margin-left: clamp(18px, 3vw, 25px);
 }
 .product-info{
     display: flex;
@@ -40,6 +40,15 @@
     font-size: 20px;
     display: inline;
     margin: 0 0 0 10px;
+}
+.product-action-buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+.product-action-buttons > *{
+    font-size: clamp(13px, 2vw, 20px);
+    margin: 0;
 }
 .cart-icon{
     margin-right: 10px;
