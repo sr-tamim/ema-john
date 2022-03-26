@@ -19,7 +19,7 @@ const Header = () => {
             <img src={logo} alt="logo" />
             <nav>
                 <NavLink activeClassName="active" to="/shop">Shop</NavLink>
-                <NavLink activeClassName="active" to="/review">Order Review</NavLink>
+                {/* <NavLink activeClassName="active" to="/review">Order Review</NavLink> */}
                 <NavLink activeClassName="active" to="/inventory">Inventory</NavLink>
                 {user ? <NavLink activeClassName="active" to="/profile">Profile</NavLink>
                     : <NavLink activeClassName="active" to="/login">Login</NavLink>}

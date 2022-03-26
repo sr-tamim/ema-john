@@ -2,18 +2,19 @@
 #cart{
     display: flex;
     justify-content: center;
-    background: linear-gradient(to right,rgba(255, 255, 255, 0.9),white, white);
-    backdrop-filter: blur(3px);
+    background: linear-gradient(to right,rgba(255, 255, 255, 0.8),white, white);
+    backdrop-filter: blur(5px);
     position: absolute;
     right: 0;
     top: 0;
     width: max-content;
     max-width: 100%;
     height: 100%;
-    padding: 0 20px;
+    padding: 0 20px 20px 40px;
     border-radius: 20px;
     transform-origin: right;
     transition: 500ms;
+    z-index: 200;
 }
 #cart.hide{
     transform: scaleX(0);
@@ -23,20 +24,24 @@
     top: 100px;
     height: max-content;
 }
+#cart-container > h2{
+    text-align: center;
+    color: var(--theme-color);
+    font-size: clamp(22px, 3vw, 30px);
+}
 table{
-    font-size: 22px;
+    font-size: clamp(16px, 2vw, 20px);
 }
 tr > td:nth-child(2){
     text-align: right;
     padding-left: 10px;
 }
 #grand-total{
-    font-size: 30px;
+    font-size: clamp(18px, 2vw, 23px);
     font-weight: bold;
-    color: var(--theme-color);
 }
 #empty-cart-button{
-    font-size: 25px;
+    font-size: clamp(16px, 2vw, 22px);
     font-weight: bold;
     background-color: var(--theme-color);
     color: white;

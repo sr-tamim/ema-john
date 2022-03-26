@@ -4,6 +4,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import Rating from 'react-rating';
 import { useParams } from 'react-router-dom';
+import { Loading } from '../../App';
 import { ProductsContext } from '../../contexts/ProductsContext';
 
 const ProductDetails = () => {
@@ -18,7 +19,7 @@ const ProductDetails = () => {
             .catch(console.dir);
     }, [id])
 
-    return (
+    return (!Object.keys(product).length ? <Loading /> :
         <div className="product">
             <img src={img} alt={name} />
             <div>

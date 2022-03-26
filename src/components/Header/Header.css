@@ -15,6 +15,7 @@ header nav{
     margin-top: 30px;
     display: flex;
     justify-content: center;
+    align-items: stretch;
     flex-wrap: wrap;
 }
 header nav a{
@@ -22,37 +23,37 @@ header nav a{
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
-    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    padding: clamp(10px, 2vw, 20px) clamp(7px, 1.5vw, 15px);
 }
 header nav a:hover, header nav a.active{
     background-color: var(--theme-hover-color);
 }
 #cart-icon{
     color: #ffffff;
-    font-size: 25px;
+    font-size: clamp(20px, 2vw, 25px);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    margin: 10px;
+    padding: 10px clamp(5px, 1.5vw, 15px);
     cursor: pointer;
     position: relative;
 }
 #cart-icon #cart-items{
-    font-size: 12px;
+    font-size: clamp(10px, 1.5vw, 15px);
     font-weight: bold;
     color: white;
     background-color: var(--theme-hover-color);
     position: absolute;
-    left: 80%;
+    left: 60%;
     bottom: 60%;
     width: max-content;
     min-width: 18px;
-    height: 18px;
+    min-height: 18px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
 }
 @media screen and (min-width:768px) {
     header nav a{ font-size: 20px; }
