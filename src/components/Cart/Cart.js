@@ -3,7 +3,7 @@ import './Cart.css';
 import { ProductsContext } from '../../contexts/ProductsContext';
 
 const Cart = () => {
-    const { cart, setCart, emptyCart } = useContext(ProductsContext);
+    const { cart, emptyCart } = useContext(ProductsContext);
     const subTotal = cart.length > 0 ? cart.reduce((previous, current) => previous + parseFloat(current.price), 0) : 0;
     const shipping = cart.length > 0 ? cart.reduce((previous, current) => previous + parseFloat(current.shipping), 0) : 0;
     const totalBeforeTax = (subTotal + shipping);
@@ -37,7 +37,7 @@ const Cart = () => {
                         </tr>
                     </tbody>
                 </table>
-                <button id="empty-cart-button" onClick={() => emptyCart(setCart)}>Empty Cart</button>
+                <button id="empty-cart-button" onClick={() => emptyCart()}>Empty Cart</button>
             </div>
         </aside>
     );
