@@ -3,7 +3,7 @@ import './Product.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import Rating from 'react-rating';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { ProductsContext } from '../../contexts/ProductsContext';
 
 
@@ -11,6 +11,7 @@ import { ProductsContext } from '../../contexts/ProductsContext';
 const Product = ({ product }) => {
     const { _id, name, img, seller, category, price, stock, star, starCount } = product;
     const { addToCart } = useContext(ProductsContext);
+    const location = useLocation();
 
     return (
         <div className="product">
@@ -40,7 +41,7 @@ const Product = ({ product }) => {
                     <NavLink className="primary-button" to={`/product/${_id}`}>
                         View
                     </NavLink>
-                    {window.location.pathname === '/inventory' &&
+                    {location.pathname === '/inventory' &&
                         <NavLink className="primary-button" to={`/product/update/${_id}`}>
                             Update
                         </NavLink>

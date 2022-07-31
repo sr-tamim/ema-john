@@ -70,6 +70,7 @@ const AddOrEditProduct = ({ method }) => {
                     <input type="number" ref={formInputs.starCount} defaultValue={starCount} required /></div>
                 {method === 'Edit' && <input type="submit" value="Update" className="primary-button"
                     disabled={user && !process.env.REACT_APP_ADMIN_ACCOUNTS.split('&').includes(user.email)} />}
+                <small>Update button is only available for admins</small>
             </form>
         </div>
     );

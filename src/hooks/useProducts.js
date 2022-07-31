@@ -27,7 +27,7 @@ export default function useProducts() {
     useEffect(getProducts, [page, searchedText]);
 
 
-    useEffect(() => getCartItemsOnLoad(), []);
+    useEffect(() => getCartItemsOnLoad());
     async function getCartItemsOnLoad() {
         const cartItems = await getFromDB();
         setCart(cartItems);

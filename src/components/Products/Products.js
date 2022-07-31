@@ -3,6 +3,7 @@ import { ProductsContext } from '../../contexts/ProductsContext';
 import Product from '../Product/Product';
 import './Products.css';
 import Search from "../Search/Search";
+import { Loading } from '../../App';
 
 const Products = () => {
     const { products, page, setPage, totalPage } = useContext(ProductsContext)
@@ -11,7 +12,7 @@ const Products = () => {
             <Search />
             <section id="products">
                 <h2>Products</h2>
-                {
+                {!products.length ? <Loading /> :
                     products.map(product => <Product key={product._id} product={product} />)
                 }
             </section>
