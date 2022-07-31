@@ -1,21 +1,21 @@
-*{
+* {
     font-family: 'Trebuchet MS', Arial, sans-serif;
     -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
 }
 
-main{
+main {
     position: relative;
     max-width: 1200px;
     margin: auto;
 }
 
-.heading{
+.heading {
     text-align: center;
     color: var(--theme-hover-color);
 }
 
-.primary-button{
+.primary-button {
     background-color: var(--theme-color);
     color: white;
     font-size: 20px;
@@ -28,32 +28,34 @@ main{
     margin: 10px;
     cursor: pointer;
 }
-.primary-button:not(:disabled):hover{
+
+.primary-button:not(:disabled):hover {
     background-color: var(--theme-hover-color);
 }
-.primary-button:disabled{
+
+.primary-button:disabled {
     filter: brightness(80%);
 }
 
-.primary-form{
+.primary-form {
     text-align: center;
     width: 100%;
-    max-width: 700px;
+    max-width: 400px;
     margin: 40px auto;
 }
 
-.primary-form > div{
+.primary-form>div {
     margin: 20px 0;
 }
 
-.primary-form label{
+.primary-form label {
     text-align: left;
     display: block;
     color: var(--theme-color);
     font-weight: bold;
 }
 
-.primary-form input{
+.primary-form input {
     width: 100%;
     font-size: 18px;
     padding: 10px 15px;
@@ -63,11 +65,11 @@ main{
     box-shadow: 0 0 5px #00000035 inset;
 }
 
-.primary-form input[type='submit']{
+.primary-form input[type='submit'] {
     margin: 20px 0;
 }
 
-.loading-container{
+.loading-container {
     color: var(--theme-color);
     display: grid;
     place-items: center;
@@ -76,6 +78,9 @@ main{
     padding: 80px 10px;
     animation: loadingTextAni 1000ms ease-in-out infinite;
 }
+
 @keyframes loadingTextAni {
-    50%{opacity: 0.2;}
+    50% {
+        opacity: 0.2;
+    }
 }

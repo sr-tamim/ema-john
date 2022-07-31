@@ -1,18 +1,23 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import { useHistory, useLocation } from 'react-router';
+import { useLocation, useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { UserContext } from '../../../contexts/UserContext';
 import "./Login.css";
 
 const Login = () => {
     const { user, emailLogin, googleLogin,
-        error, setError } = useContext(UserContext);
-    useEffect(() => setError(null), [setError]);
-
-    const history = useHistory();
+        error, setError, goBackPath, setGoBackPath } = useContext(UserContext);
     const location = useLocation();
-    const goBackPath = location.state?.from.pathname || '/profile';
-    user && history.push(goBackPath);
+
+    useEffect(() => {
+        setError(null);
+        setGoBackPath(location.state?.from.pathname || '/profile');
+    }, [setError, setGoBackPath, location]);
+
+    const history = useHistory()
+    useEffect(() => {
+        (user && goBackPath) && history.push(goBackPath)
+    }, [user, goBackPath, history])
 
     const formInputs = {
         email: useRef(),
@@ -44,13 +49,13 @@ const Login = () => {
                     <input type="password" ref={formInputs.password} required />
                 </div>
 
-                <input type="submit" value="Sign up" className="primary-button" />
+                <input type="submit" value="Submit" className="primary-button" />
             </form>
+            <h4 style={{ marginBottom: '40px', marginTop: 0 }}>Don't have account? <NavLink to="/signup">Sign up</NavLink></h4>
             <div className="login-buttons-container">
                 <h5>Sign in with</h5>
-                <button className="login-button primary-button" onClick={googleLogin}><i class="fab fa-google"></i></button>
+                <button className="login-button primary-button" onClick={googleLogin}><i className="fab fa-google"></i></button>
             </div>
-            <h4 style={{ marginTop: '40px' }}>Don't have account? <NavLink to="/signup">Sign up</NavLink></h4>
         </div>
     );
 };

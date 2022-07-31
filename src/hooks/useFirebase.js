@@ -14,11 +14,15 @@ const useFirebase = () => {
     const [user, setUser] = useState(null);
     const [userLoading, setUserLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [goBackPath, setGoBackPath] = useState('')
 
     onAuthStateChanged(auth, newUser => {
         newUser ? setUser(newUser) : user && setUser(null);
-        user && setError(null);
         userLoading && setUserLoading(false);
+        if (user) {
+            setError(null);
+            setGoBackPath('');
+        }
     })
 
     const logout = () => signOut(auth).catch(err => setError(err));
@@ -28,7 +32,7 @@ const useFirebase = () => {
 
     return {
         user, setUser, error, setError, userLoading,
-        googleLogin,
+        googleLogin, goBackPath, setGoBackPath,
         logout, signup, emailLogin
     }
 };

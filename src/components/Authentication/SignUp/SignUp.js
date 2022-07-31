@@ -1,10 +1,15 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { UserContext } from '../../../contexts/UserContext';
 
 const SignUp = () => {
-    const { signup, googleLogin, error, setError } = useContext(UserContext);
+    const { signup, googleLogin, error, setError, goBackPath, user } = useContext(UserContext);
     useEffect(() => setError(null), [setError]);
+
+    const history = useHistory()
+    useEffect(() => {
+        (user && goBackPath) && history.push(goBackPath)
+    }, [user, goBackPath, history])
 
     const formInputs = {
         name: useRef(),
@@ -40,14 +45,14 @@ const SignUp = () => {
 
                 <input type="submit" value="Sign up" className="primary-button" />
             </form>
+            <h4 style={{ marginBottom: '40px', marginTop: 0 }}>
+                Already have an account? <NavLink to="/login">Login</NavLink>
+            </h4>
 
             <div className="login-buttons-container">
                 <h5>Sign in with</h5>
-                <button className="login-button primary-button" onClick={googleLogin}><i class="fab fa-google"></i></button>
+                <button className="login-button primary-button" onClick={googleLogin}><i className="fab fa-google"></i></button>
             </div>
-            <h4 style={{ marginTop: '40px' }}>
-                Already have an account? <NavLink to="/login">Login</NavLink>
-            </h4>
         </div>
     );
 };
