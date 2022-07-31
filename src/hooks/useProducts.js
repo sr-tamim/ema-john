@@ -26,6 +26,7 @@ export default function useProducts() {
         }
     }
     useEffect(getProducts, [page, searchedText]);
+    useEffect(() => setTimeout(() => products.length || getProducts(), 5000), [])
 
 
     const getCartItemsOnLoad = useCallback(async () => {
