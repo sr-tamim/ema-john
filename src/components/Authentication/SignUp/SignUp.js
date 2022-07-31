@@ -3,7 +3,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { UserContext } from '../../../contexts/UserContext';
 
 const SignUp = () => {
-    const { signup, googleLogin, error, setError, goBackPath, user } = useContext(UserContext);
+    const { signup, googleLogin, emailLogin, error, setError, goBackPath, user } = useContext(UserContext);
     useEffect(() => setError(null), [setError]);
 
     const history = useHistory()
@@ -50,8 +50,14 @@ const SignUp = () => {
             </h4>
 
             <div className="login-buttons-container">
-                <h5>Sign in with</h5>
-                <button className="login-button primary-button" onClick={googleLogin}><i className="fab fa-google"></i></button>
+                <button className="login-button primary-button" onClick={googleLogin}>
+                    Sign in with Google
+                </button>
+                or
+                <button className="login-button primary-button"
+                    onClick={() => emailLogin('demo@srt.com', 'demo123')}>
+                    Skip Login <i className="fas fa-forward"></i>
+                </button>
             </div>
         </div>
     );

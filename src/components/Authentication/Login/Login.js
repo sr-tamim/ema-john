@@ -53,8 +53,14 @@ const Login = () => {
             </form>
             <h4 style={{ marginBottom: '40px', marginTop: 0 }}>Don't have account? <NavLink to="/signup">Sign up</NavLink></h4>
             <div className="login-buttons-container">
-                <h5>Sign in with</h5>
-                <button className="login-button primary-button" onClick={googleLogin}><i className="fab fa-google"></i></button>
+                <button className="login-button primary-button" onClick={googleLogin}>
+                    Sign in with Google
+                </button>
+                or
+                <button className="login-button primary-button"
+                    onClick={() => emailLogin('demo@srt.com', 'demo123')}>
+                    Skip Login <i className="fas fa-forward"></i>
+                </button>
             </div>
         </div>
     );
