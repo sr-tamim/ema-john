@@ -2,10 +2,10 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import Rating from 'react-rating';
 import { useParams } from 'react-router-dom';
 import { Loading } from '../../App';
 import { ProductsContext } from '../../contexts/ProductsContext';
+import Rating from '../Rating/Rating';
 
 const ProductDetails = () => {
     const { addToCart } = useContext(ProductsContext);
@@ -30,7 +30,7 @@ const ProductDetails = () => {
                     <h3 className="product-price">${price}</h3>
                     <p className="product-stock">In stock: {stock}</p>
                     <p className="product-rating">
-                        <Rating initialRating={star} emptySymbol="fa fa-star-o icon-color" fullSymbol="fa fa-star icon-color" readonly />
+                        <Rating initialRating={star} />
                         <span className="product-star-count">{starCount}</span>
                     </p>
 

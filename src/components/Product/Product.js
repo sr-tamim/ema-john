@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import './Product.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import Rating from 'react-rating';
 import { NavLink, useLocation } from 'react-router-dom';
 import { ProductsContext } from '../../contexts/ProductsContext';
+import Rating from '../Rating/Rating';
 
 
 
@@ -26,7 +26,7 @@ const Product = ({ product }) => {
                     <h3 className="product-price">${price}</h3>
                     <p className="product-stock">In stock: {stock}</p>
                     <p className="product-rating">
-                        <Rating initialRating={star} emptySymbol="fa fa-star-o icon-color" fullSymbol="fa fa-star icon-color" readonly />
+                        <Rating initialRating={star} />
                         <span className="product-star-count">{starCount}</span>
                     </p>
 

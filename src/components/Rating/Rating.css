@@ -1,0 +1,14 @@
+.rating-container {
+    position: relative;
+}
+
+.rating-container>span {
+    display: inline-flex;
+}
+
+.rating-container>.filled-stars {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
