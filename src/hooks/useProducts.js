@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import { useCallback } from "react";
 
 export default function useProducts() {
     const [page, setPage] = useState(0);
@@ -27,11 +28,11 @@ export default function useProducts() {
     useEffect(getProducts, [page, searchedText]);
 
 
-    useEffect(() => getCartItemsOnLoad());
-    async function getCartItemsOnLoad() {
+    const getCartItemsOnLoad = useCallback(async () => {
         const cartItems = await getFromDB();
         setCart(cartItems);
-    }
+    }, [])
+    useEffect(() => getCartItemsOnLoad(), [getCartItemsOnLoad]);
 
 
     function addToCart(product) {
