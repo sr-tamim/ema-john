@@ -19,37 +19,34 @@ function App() {
   return (
     <UserContextProvider>
       <ProductsContextProvider>
-        <div className="container">
-          <Router>
-            <Header></Header>
-            <main>
-              <Cart />
-              <Switch>
-                <Route exact path="/">
-                  <Products />
-                </Route>
-                <Route exact path="/product/:id">
-                  <ProductDetails />
-                </Route>
-                <PrivateRoute exact path="/inventory">
-                  <Inventory />
-                </PrivateRoute>
-                <Route path="/signup">
-                  <SignUp />
-                </Route>
-                <Route path="/login">
-                  <Login />
-                </Route>
-                <PrivateRoute path="/profile">
-                  <Profile />
-                </PrivateRoute>
-                <Route path="/product/update/:id">
-                  <AddOrEditProduct method="Edit" />
-                </Route>
-              </Switch>
-            </main>
-          </Router>
-        </div>
+        <Router>
+          <Header></Header>
+          <main>
+            <Switch>
+              <Route exact path="/">
+                <Products />
+              </Route>
+              <Route exact path="/product/:id">
+                <ProductDetails />
+              </Route>
+              <PrivateRoute exact path="/inventory">
+                <Inventory />
+              </PrivateRoute>
+              <Route path="/signup">
+                <SignUp />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <PrivateRoute path="/profile">
+                <Profile />
+              </PrivateRoute>
+              <Route path="/product/update/:id">
+                <AddOrEditProduct method="Edit" />
+              </Route>
+            </Switch>
+          </main>
+        </Router>
       </ProductsContextProvider>
     </UserContextProvider>
   );

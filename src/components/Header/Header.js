@@ -4,6 +4,8 @@ import logo from '../../images/logo.png';
 import { NavLink } from 'react-router-dom';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import { UserContext } from '../../contexts/UserContext';
+import Search from '../Search/Search';
+import Cart from '../Cart/Cart';
 
 const showHideCart = () => {
     document.getElementById('cart').classList.toggle('hide');
@@ -15,21 +17,28 @@ const Header = () => {
     const cartItems = cart.length;
 
     return (
-        <header>
-            <img src={logo} alt="logo" />
+        <>
+            <header>
+                <img src={logo} alt="logo" />
+            </header>
             <nav>
-                <NavLink exact activeClassName="active" to="/">Shop</NavLink>
-                {/* <NavLink activeClassName="active" to="/review">Order Review</NavLink> */}
-                <NavLink activeClassName="active" to="/inventory">Inventory</NavLink>
-                {user ? <NavLink activeClassName="active" to="/profile">Profile</NavLink>
-                    : <NavLink activeClassName="active" to="/login">Login</NavLink>}
-                <span id="cart-icon">
-                    <i className="fas fa-shopping-cart" onClick={showHideCart} ></i>
-                    {cartItems > 0 ? <small id="cart-items">{cartItems}</small> : ''}
-                </span>
+                <div id='nav'>
+                    <NavLink exact activeClassName="active" to="/">Shop</NavLink>
+                    {/* <NavLink activeClassName="active" to="/review">Order Review</NavLink> */}
+                    <NavLink activeClassName="active" to="/inventory">Inventory</NavLink>
+                    {user ? <NavLink activeClassName="active" to="/profile">Profile</NavLink>
+                        : <NavLink activeClassName="active" to="/login">Login</NavLink>}
+                    <span id="cart-icon">
+                        <i className="fas fa-shopping-cart" onClick={showHideCart} ></i>
+                        {cartItems > 0 ? <small id="cart-items">{cartItems}</small> : ''}
+                    </span>
+                </div>
+                <Search />
+                <Cart/>
             </nav>
-        </header>
+        </>
     );
+
 };
 
 export default Header;

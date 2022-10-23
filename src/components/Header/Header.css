@@ -9,7 +9,13 @@ header img{
     width: 50%;
     max-width: 400px;
 }
-header nav{
+nav{
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 99;
+}
+#nav{
     background-color: var(--theme-color);
     width: 100%;
     margin-top: 30px;
@@ -18,7 +24,7 @@ header nav{
     align-items: stretch;
     flex-wrap: wrap;
 }
-header nav a{
+#nav a{
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -27,7 +33,7 @@ header nav a{
     align-items: center;
     padding: clamp(10px, 2vw, 20px) clamp(7px, 1.5vw, 15px);
 }
-header nav a:hover, header nav a.active{
+#nav a:hover, #nav a.active{
     background-color: var(--theme-hover-color);
 }
 #cart-icon{
@@ -56,5 +62,5 @@ header nav a:hover, header nav a.active{
     place-items: center;
 }
 @media screen and (min-width:768px) {
-    header nav a{ font-size: 20px; }
+    #nav a{ font-size: 20px; }
 }

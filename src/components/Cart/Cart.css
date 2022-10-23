@@ -6,22 +6,19 @@
     backdrop-filter: blur(5px);
     position: absolute;
     right: 0;
-    top: 0;
+    top: 100%;
     width: max-content;
     max-width: 100%;
-    height: 100%;
-    padding: 0 20px 20px 40px;
-    border-radius: 20px;
+    height: 100vh;
+    padding: 40px 20px 20px 40px;
     transform-origin: right;
-    transition: 500ms;
-    z-index: 200;
+    transition: 250ms ease-out;
+    z-index: 98;
 }
 #cart.hide{
-    transform: scaleX(0);
+    transform: translateX(100%);
 }
 #cart-container{
-    position: sticky;
-    top: 100px;
     height: max-content;
 }
 #cart-container > h2{

@@ -9,7 +9,6 @@ const Products = () => {
     const { products, page, setPage, totalPage } = useContext(ProductsContext)
     return (
         <>
-            <Search />
             <section id="products">
                 <h2>Products</h2>
                 {!products.length ? <Loading /> :
