@@ -14,7 +14,7 @@ const ProductDetails = () => {
     const { img, name, seller, price, stock, category, star, starCount } = product;
 
     useEffect(() => {
-        axios(`https://ema-john-srt.herokuapp.com/product/${id}`)
+        axios(`https://ema-john-server.netlify.app/.netlify/functions/server/products/${id}`)
             .then(({ data }) => setProduct(data))
             .catch(console.dir);
     }, [id])

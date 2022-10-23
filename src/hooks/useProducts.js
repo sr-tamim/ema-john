@@ -12,13 +12,13 @@ export default function useProducts() {
     const [searchedText, setSearchedText] = useState(null);
     function getProducts() {
         if (searchedText) {
-            axios.get(`https://ema-john-srt.herokuapp.com/products/search?name=${searchedText}&&page=${page}&&itemsOnPage=${itemsOnPage}`)
+            axios.get(`https://ema-john-server.netlify.app/.netlify/functions/server/products/search?name=${searchedText}&&page=${page}&&itemsOnPage=${itemsOnPage}`)
                 .then(({ data }) => {
                     setProducts(data.products);
                     setTotalPage(data.totalPage)
                 });
         } else {
-            axios.get(`https://ema-john-srt.herokuapp.com/?page=${page}&&itemsOnPage=${itemsOnPage}`)
+            axios.get(`https://ema-john-server.netlify.app/.netlify/functions/server/products?page=${page}&&itemsOnPage=${itemsOnPage}`)
                 .then(({ data }) => {
                     setProducts(data.products);
                     setTotalPage(data.totalPage)
@@ -55,7 +55,7 @@ export default function useProducts() {
         if (!dbJSON) { return [] };
         const savedDB = JSON.parse(dbJSON);
         const productIDs = Object.keys(savedDB);
-        const result = await axios.post('https://ema-john-srt.herokuapp.com/products/byID', productIDs);
+        const result = await axios.post('https://ema-john-server.netlify.app/.netlify/functions/server/products/many', productIDs);
         const { data } = result;
         // add products depending on the number of savedDB
         const cartItems = [];
