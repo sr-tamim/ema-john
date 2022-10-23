@@ -1,4 +1,3 @@
-
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import './App.css';
 import AddOrEditProduct from './components/AddOrEditProduct/AddOrEditProduct';
@@ -6,13 +5,13 @@ import Login from './components/Authentication/Login/Login';
 import PrivateRoute from './components/Authentication/PrivateRoute/PrivateRoute';
 import Profile from './components/Authentication/Profile/Profile';
 import SignUp from './components/Authentication/SignUp/SignUp';
-import Cart from './components/Cart/Cart';
-import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
 import Inventory from './components/Inventory/Inventory';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import Products from './components/Products/Products';
 import ProductsContextProvider from './contexts/ProductsContext';
 import UserContextProvider from './contexts/UserContext';
+import logo from './images/logo.png';
 
 function App() {
 
@@ -20,7 +19,10 @@ function App() {
     <UserContextProvider>
       <ProductsContextProvider>
         <Router>
-          <Header></Header>
+          <header>
+            <img src={logo} alt="logo" />
+          </header>
+          <Navbar />
           <main>
             <Switch>
               <Route exact path="/">

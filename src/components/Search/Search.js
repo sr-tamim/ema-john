@@ -10,13 +10,14 @@ const Search = () => {
     const searchFunction = e => {
         e.preventDefault();
         const searchText = searchRef.current.value.toLowerCase();
+        if (!searchText) return
         setPage(0);
         setSearchedText(searchText);
     }
     return (
         <section id="search-area">
             <form onSubmit={searchFunction}>
-                <input type="text" id="search-field" placeholder="type here for search" ref={searchRef} />
+                <input type="text" id="search-field" placeholder="type here for search" ref={searchRef} required />
                 <input type="submit" id="search-submit" value="Search" />
             </form>
         </section>

@@ -22,7 +22,7 @@
     flex-grow: 1;
     background: transparent;
     font-size: clamp(18px, 3vw, 20px);
-    padding: 0 clamp(5px, 1vw, 8px);
+    padding: clamp(5px, 1vw, 8px);
     border:0;
     outline: 0;
 }

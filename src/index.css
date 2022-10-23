@@ -1,5 +1,4 @@
-
-:root{
+:root {
   --theme-color: #ff8c00;
   --theme-hover-color: #ff7300;
 }
@@ -16,4 +15,13 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }

@@ -4,6 +4,12 @@
     max-width: 1500px;
     padding: 0 15px;
 }
+#products>.title{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--theme-color);
+}
 
 .pagination{
     display: flex;

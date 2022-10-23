@@ -4,14 +4,9 @@
     box-sizing: border-box;
 }
 
-body {
-    overflow-x: hidden;
-}
-
 main {
-    position: relative;
     max-width: 1200px;
-    margin: auto;
+    margin: 40px auto;
 }
 
 .heading {
