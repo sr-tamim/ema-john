@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import { useCallback } from "react";
 
 export default function useProducts() {
+    const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
+    const [searchedText, setSearchedText] = useState(null);
+
     const [page, setPage] = useState(0);
     const [totalPage, setTotalPage] = useState(0);
     const itemsOnPage = 10;
 
-    const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
-    const [searchedText, setSearchedText] = useState(null);
     function getProducts() {
+        setProducts([])
+        setTotalPage(0)
         if (searchedText) {
-            axios.get(`https://ema-john-server.netlify.app/.netlify/functions/server/products/search?name=${searchedText}&&page=${page}&&itemsOnPage=${itemsOnPage}`)
+            axios.get(`https://ema-john-server.netlify.app/.netlify/functions/server/product-search?name=${searchedText}&&page=${page}&&itemsOnPage=${itemsOnPage}`)
                 .then(({ data }) => {
                     setProducts(data.products);
                     setTotalPage(data.totalPage)
                 });
         } else {
-            axios.get(`https://ema-john-server.netlify.app/.netlify/functions/server/products?page=${page}&&itemsOnPage=${itemsOnPage}`)
+            axios.get(`https://ema-john-server.netlify.app/.netlify/functions/server/products?page=${page}&itemsOnPage=${itemsOnPage}`)
                 .then(({ data }) => {
                     setProducts(data.products);
                     setTotalPage(data.totalPage)
@@ -26,14 +28,8 @@ export default function useProducts() {
         }
     }
     useEffect(getProducts, [page, searchedText]);
-    useEffect(() => setTimeout(() => products.length || getProducts(), 5000), [])
-
-
-    const getCartItemsOnLoad = useCallback(async () => {
-        const cartItems = await getFromDB();
-        setCart(cartItems);
-    }, [])
-    useEffect(() => getCartItemsOnLoad(), [getCartItemsOnLoad]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => products.length || getProducts(), [])
 
 
     function addToCart(product) {
@@ -50,12 +46,13 @@ export default function useProducts() {
         localStorage.setItem('shopping-cart', (JSON.stringify(DB)));
     }
 
-    async function getFromDB() {
+    useEffect(() => getCartItemsFromDB(), [])
+    async function getCartItemsFromDB() {
         const dbJSON = localStorage.getItem('shopping-cart');
         if (!dbJSON) { return [] };
         const savedDB = JSON.parse(dbJSON);
         const productIDs = Object.keys(savedDB);
-        const result = await axios.post('https://ema-john-server.netlify.app/.netlify/functions/server/products/many', productIDs);
+        const result = await axios.post('https://ema-john-server.netlify.app/.netlify/functions/server/multiple-products', productIDs);
         const { data } = result;
         // add products depending on the number of savedDB
         const cartItems = [];
@@ -65,7 +62,7 @@ export default function useProducts() {
                 cartItems.push(product);
             }
         }
-        return cartItems;
+        setCart(cartItems);
     }
 
     function emptyCart() {
@@ -75,7 +72,7 @@ export default function useProducts() {
 
     return {
         page, setPage, totalPage,
-        setSearchedText,
+        searchedText, setSearchedText,
         products, setProducts,
         cart, setCart, addToCart, getProducts, emptyCart
     }

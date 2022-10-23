@@ -15,7 +15,7 @@ const AddOrEditProduct = ({ method }) => {
     const { name, seller, price, stock, category, star, starCount } = product || {};
 
     useEffect(() => {
-        axios(`https://ema-john-server.netlify.app/.netlify/functions/server/products/${id}`)
+        axios(`https://ema-john-server.netlify.app/.netlify/functions/server/product-info/${id}`)
             .then(({ data }) => setProduct(data))
             .catch(console.dir);
     }, [id])
@@ -37,7 +37,7 @@ const AddOrEditProduct = ({ method }) => {
         Object.keys(formInputs).forEach(key => {
             updatedProduct[key] = formInputs[key].current.value;
         })
-        axios.post(`https://ema-john-server.netlify.app/.netlify/functions/server/products/update/${id}`, updatedProduct)
+        axios.post(`https://ema-john-server.netlify.app/.netlify/functions/server/update-product/${id}`, updatedProduct)
             .then(({ data }) => data.modifiedCount > 0 && history.push('/inventory'))
             .then(() => getProducts());
     }
