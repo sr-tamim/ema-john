@@ -1,23 +1,26 @@
+.products-title {
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+    padding: 0 5px;
+}
 
-#products{
+#products {
     width: 100%;
     max-width: 1500px;
-    padding: 0 15px;
-}
-#products>.title{
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: var(--theme-color);
+    padding: 0 20px;
+    display: grid;
+    gap: 50px;
 }
 
-.pagination{
+.pagination {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 40px auto 100px;
 }
-.pagination button{
+
+.pagination button {
     font-size: 16px;
     font-weight: bold;
     color: white;
@@ -28,11 +31,13 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.pagination button.active{
+
+.pagination button.active {
     color: white;
     background-color: #ff5100;
     box-shadow: 0 0 10px gray;
 }
-.pagination button:hover{
+
+.pagination button:hover {
     box-shadow: 0 0 10px gray;
 }

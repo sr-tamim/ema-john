@@ -13,6 +13,7 @@ const Search = () => {
         if (!searchText) return
         setPage(0);
         setSearchedText(searchText);
+        e.target.reset();
     }
     return (
         <section id="search-area">

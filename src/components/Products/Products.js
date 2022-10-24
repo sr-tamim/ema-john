@@ -8,20 +8,19 @@ const Products = () => {
     const { products, searchedText, setSearchedText, page, setPage, totalPage } = useContext(ProductsContext)
     return (
         <>
+            {searchedText && <h2 className='products-title'>{`Showing results for "${searchedText}"`}</h2>}
             <section id="products">
-                <h1 className='title'>{searchedText ? `Showing results for "${searchedText}"` : "Products"}</h1>
                 {!products.length ? <Loading /> :
                     products.map(product => <Product key={product._id} product={product} />)
                 }
             </section>
-            <section className="pagination">
-                {totalPage > 1 &&
-                    [...Array(totalPage).keys()].map(i =>
-                        <button key={i} onClick={() => setPage(i)}
-                            className={page === i ? 'active' : ''}
-                        >{i + 1}</button>)
+            {totalPage > 1 && <section className="pagination">
+                {[...Array(totalPage).keys()].map(i =>
+                    <button key={i} onClick={() => setPage(i)}
+                        className={page === i ? 'active' : ''}
+                    >{i + 1}</button>)
                 }
-            </section>
+            </section>}
             {searchedText && <section style={{ textAlign: 'center' }}>
                 <button onClick={() => setSearchedText(null)}
                     className='primary-button'>View all products</button>

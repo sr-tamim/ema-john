@@ -19,8 +19,8 @@ const Product = ({ product }) => {
             <div>
                 <h3 className="product-name">{name}</h3>
                 <div className='product-details'>
-                    <b>Company:</b> {seller}
-                    <b>Category:</b> {category}
+                    <div><b>Company:</b> {seller}</div>
+                    <div><b>Category:</b> {category}</div>                    
                 </div>
                 <div className="product-info">
                     <h3 className="product-price">${price}</h3>
