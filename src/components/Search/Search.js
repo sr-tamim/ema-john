@@ -16,12 +16,12 @@ const Search = () => {
         e.target.reset();
     }
     return (
-        <section id="search-area">
+        <div id="search-area">
             <form onSubmit={searchFunction}>
                 <input type="text" id="search-field" placeholder="type here for search" ref={searchRef} required />
                 <input type="submit" id="search-submit" value="Search" />
             </form>
-        </section>
+        </div>
     );
 };
 
